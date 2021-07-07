@@ -24,6 +24,17 @@ let orders = async () => {
     console.log(rzpOrder)
 }
 orders()
+
+
+app.get('/create', (req, res) => {
+
+    res.sendFile('views/index.html', { root: __dirname })
+
+})
+
+
+
+
 app.listen(port, () => {
 
     console.log('Server Started at ' + port)
