@@ -11,7 +11,7 @@ const rzp = new razorpay({
 
 let orders = async () => {
     const rzpOrder = await rzp.orders.create({
-        amount: 200, // rzp format with paise
+        amount: 900 * 100, // rzp format with paise
         currency: 'INR',
         receipt: "receipt#1", //Receipt no that corresponds to this Order,
         payment_capture: true,
@@ -19,14 +19,12 @@ let orders = async () => {
             orderType: "Pre"
         } //Key-value pair used to store additional information
     })
-
-
     console.log(rzpOrder)
 }
 orders()
 
 
-app.get('/create', (req, res) => {
+app.get('/create', async (req, res) => {
 
     res.sendFile('views/index.html', { root: __dirname })
 
